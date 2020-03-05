@@ -8,3 +8,8 @@ class Habit(models.Model):
     
     def __str__ (self):
         return f'name: {self.name} goal: {self.goal}'
+
+class HabitRecord(models.Model):
+    #habit =  #foreign key to connect habits
+    progress = models.IntegerField()
+    updated_at = models.DateTimeField(auto_now=True)
