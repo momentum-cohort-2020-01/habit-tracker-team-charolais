@@ -4,7 +4,7 @@
 <div id="habit_list" class="flex">
   {% for habit in habits %}
   <article>
-    <a href="{% url 'vote' habit.pk %}">
+    <a href="{% url 'record' habit.pk %}">
       <p>Favorite this habit</p>
     </a>
   </article>
