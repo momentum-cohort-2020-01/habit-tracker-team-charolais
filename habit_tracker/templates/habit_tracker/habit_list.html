@@ -4,10 +4,12 @@
 <div id="habit_list" class="flex">
   {% for habit in habits %}
   <article>
-    <a href="{% url 'record' habit.pk %}">
-      <p>Favorite this habit</p>
-    </a>
+    <h4> I want to {% habit.name %} {% habit.goal %} {% habit.unit %} </h4>
+    <!-- <a href="{% url 'record' habit.pk %}">
+      <p>create record for this habit</p>
+    </a> -->
   </article>
+  <hr>
   {% endfor %}
 </div>
 {% endblock %}
