@@ -21,6 +21,7 @@ from habit_tracker import views
 urlpatterns = [
     path('record/<int:habit_pk>', views.record, name='record')
     path('admin/', admin.site.urls),
+    path('accounts/', include('registration.backends.default.urls')),
 ]
 
 if settings.DEBUG:
