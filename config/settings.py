@@ -71,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'habit_tracker.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
