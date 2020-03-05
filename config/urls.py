@@ -16,8 +16,11 @@ Including another URLconf
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
+from habit_tracker import views
 
 urlpatterns = [
+    path('', views.habit_list, name='habit_list')
+    path('record/<int:habit_pk>', views.record, name='record')
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.default.urls')),
 ]
