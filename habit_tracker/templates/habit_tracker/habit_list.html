@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="habit_list" class="flex">
+  {% for habit in habits %}
+  <article>
+    <a href="{% url 'vote' habit.pk %}">
+      <p>Favorite this habit</p>
+    </a>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}
