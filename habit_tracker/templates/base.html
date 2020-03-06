@@ -13,11 +13,14 @@
 
 <body class="sans-serif flex-wrap">
 
-  {% block heading %}
-  <h1>Habit Tracker!</h1>
-  {% endblock %}
 
-  {% block content %}{% endblock %}
+  <h1>Habit Tracker!</h1>
+  <a class="f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-blue" href="{% url 'habit_list' %}">Home</a>
+
+
+  {% block content %}
+
+  {% endblock %}
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 
-from .models import User, Habit
+from .models import User, Habit, HabitRecord
 from .forms import HabitForm, HabitRecordForm
 
 def habit_list(request):
@@ -30,11 +30,12 @@ def habit_new(request):
 def record_new(request, pk):
     if request.method == 'POST':
         form = HabitRecordForm(request.POST)
-        if forms.is_valid():
+        if form.is_valid():
             record = form.save()
             return redirect('habit_detail', pk = pk)
     else: 
         form = HabitRecordForm()
+
     return render(request, 'habit_tracker/record_new.html', {"form": form})
 
 # This needs to be updated
