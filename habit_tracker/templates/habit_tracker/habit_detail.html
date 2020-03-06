@@ -12,4 +12,5 @@
   <!-- <td> should display wheter the record is complete or not </td> -->
   {% endfor %}
 </table>
+<a href="{% url 'habit_delete' habit.pk %}">Delete</a>
 {% endblock %}
