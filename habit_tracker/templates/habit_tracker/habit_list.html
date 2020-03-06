@@ -5,9 +5,6 @@
   {% for habit in habits %}
   <article>
     <h4> I want to {{ habit.name }} {{ habit.goal }} {{ habit.unit }} </h4>
-    <!-- <a href="{% url 'record' habit.pk %}">
-      <p>create record for this habit</p>
-    </a> -->
   </article>
   <br><br>
   {% endfor %}
