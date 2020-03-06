@@ -8,10 +8,10 @@
 <h4>Habit Records</h4>
 <h5>Goal: {{ habit.goal }}</h5>
 <table>
-  {% for record in habit.record %}
+  {% for record in habit.habit_records.all %}
   <tr> {{ record.progress }} </tr>
-  <!-- <td> should display wheter the record is complete or not </td> -->
+  {% empty %}
+  <p>There are no records for this habit. Would you like to add one?</p>
   {% endfor %}
 </table>
-<a href="{% url 'habit_delete' habit.pk %}">Delete</a>
 {% endblock %}
