@@ -6,7 +6,7 @@
 
 {% block content %}
 <h4>Habit Records</h4>
-<h5>Goal: {{ habit.goal }}</h5>
+<h5>Goal: {{ habit.goal }} {{habit.unit}}</h5>
 <table>
   {% for record in habit.habit_records.all %}
   <tr> {{ record.progress }} </tr>
@@ -14,4 +14,9 @@
   <p>There are no records for this habit. Would you like to add one?</p>
   {% endfor %}
 </table>
+<a class="f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-blue"
+  href="{% url 'habit_delete' habit.pk %}">Delete</a>
+
+<a class="f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-blue" href="{% url 'record_new' habit.pk %}">Add
+  Record</a>
 {% endblock %}
