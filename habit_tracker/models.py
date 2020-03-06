@@ -2,12 +2,14 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Habit(models.Model):
-    record = models.ForeignKey('HabitRecord', on_delete=models.CASCADE, null=True, blank=True)
+    record = models.ForeignKey('HabitRecord', on_delete=models.CASCADE, null=True, blank=True, related_name='habit_record')
     name = models.CharField(max_length=50)
     goal = models.IntegerField()
     unit = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        constraints = [ models.UniqueConstraint(fields=[ 'created_at', 'record' ], name = 'unique_records') ]
 
     def __str__ (self):
         return f'name: {self.name} goal: {self.goal}'
