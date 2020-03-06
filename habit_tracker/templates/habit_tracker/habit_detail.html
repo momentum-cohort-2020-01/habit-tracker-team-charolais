@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block heading %}
+<h2>Habit: {{ habit.name }} </h2>
+{% endblock %}
+
+{% block content %}
+<h4>Habit Records</h4>
+<table>
+  {% for record in habit.record %}
+  <tr> {{ record.progress }} </tr>
+  <!-- <td> should display wheter the record is complete or not </td> -->
+  {% endfor %}
+</table>
+{% endblock %}
