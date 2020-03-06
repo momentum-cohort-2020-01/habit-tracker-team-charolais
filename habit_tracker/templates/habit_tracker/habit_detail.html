@@ -6,6 +6,7 @@
 
 {% block content %}
 <h4>Habit Records</h4>
+<h5>Goal: {{ habit.goal }}</h5>
 <table>
   {% for record in habit.record %}
   <tr> {{ record.progress }} </tr>
