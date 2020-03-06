@@ -12,5 +12,9 @@
   <!-- <td> should display wheter the record is complete or not </td> -->
   {% endfor %}
 </table>
-<a href="{% url 'habit_delete' habit.pk %}">Delete</a>
+<a class="f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-blue"
+  href="{% url 'habit_delete' habit.pk %}">Delete</a>
+
+<a class="f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-blue" href="{% url 'record_new' habit.pk %}">Add
+  Record</a>
 {% endblock %}
