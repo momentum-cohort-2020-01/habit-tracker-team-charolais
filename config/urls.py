@@ -23,7 +23,7 @@ urlpatterns = [
     path('habit/new/', views.habit_new, name='habit_new'),
     path('habit/<int:pk>/', views.habit_detail, name='habit_detail'),
     path('habit/<int:pk>/new', views.record_new, name='record_new'),
-    # path('/<int:pk>/edit/', views.habit_edit, name='habit_edit'),
+    path('habit/<int:pk>/record/edit/', views.record_edit, name='record_edit'),
     path('<int:pk>/delete/', views.habit_delete, name='habit_delete'),
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.default.urls')),
