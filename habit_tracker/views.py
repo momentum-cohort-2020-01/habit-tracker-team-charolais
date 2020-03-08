@@ -1,9 +1,11 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 
 from .models import User, Habit, HabitRecord
 from .forms import HabitForm, HabitRecordForm
 
+@login_required
 def habit_list(request):
   habits = Habit.objects.all()
   return render(request, 'habit_tracker/habit_list.html', {'habits': habits})
@@ -38,18 +40,18 @@ def record_new(request, pk):
 
     return render(request, 'habit_tracker/record_new.html', {"form": form})
 
-# This needs to be updated
-# def record_edit(request, pk):
-#     habit = get_object_or_404(Habit, pk=pk)
-#     if request.method == 'POST':
-#         form = HabitForm(request.POST, instance=habit)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('habit_detail', pk=habit.pk)
-#     else:
-#         form = HabitForm(instance=habit)
+
+def record_edit(request, pk):
+    record = get_object_or_404(HabitRecord)
+    if request.method == 'POST':
+        form = HabitRecordForm(request.POST, instance=record)
+        if form.is_valid():
+            form.save()
+            return redirect('habit_detail', pk = pk)
+    else:
+        form = HabitRecordForm(instance=record)
     
-#     return render(request, 'habit_tracker/habit_edit.html', {"form": form})
+    return render(request, 'habit_tracker/record_edit.html', {"form": form})
 
 def habit_delete(request, pk):
     habit = get_object_or_404(Habit, pk=pk)
