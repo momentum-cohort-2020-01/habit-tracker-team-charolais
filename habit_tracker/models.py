@@ -9,8 +9,8 @@ class Habit(models.Model):
     unit = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
     due_date = models.DateField(default=date.today())
-    owner = models.ForeignKey(to=User, related_name='owner', null=True, on_delete=models.DO_NOTHING)
-    observer = models.ForeignKey(to=User, related_name='observer', on_delete=models.DO_NOTHING, null=True, blank=True)
+    owner = models.ForeignKey(to=User, related_name='owned_habits', null=True, on_delete=models.CASCADE)
+    observer = models.ForeignKey(to=User, related_name='observed_habits', on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__ (self):
         return self.name
