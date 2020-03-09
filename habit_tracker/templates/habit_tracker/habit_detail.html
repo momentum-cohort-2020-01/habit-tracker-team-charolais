@@ -20,11 +20,10 @@
   </table>
   <a class="f6 grow no-underline br-pill ph3 pv2 mb2 dib blue bg-white"
     href="{% url 'habit_delete' habit.pk %}">Delete</a>
-  {% if current_user.username == owned_habits.username %}
+
   <a class="f6 grow no-underline br-pill ph3 pv2 mb2 dib blue bg-white" href="{% url 'record_new' habit.pk %}">Add
     Record</a>
   <a class="f6 grow no-underline br-pill ph3 pv2 mb2 dib blue bg-white" href="{% url 'record_edit' habit.pk %}">Edit
     Record</a>
-  {% endif %}
 </div>
 {% endblock %}

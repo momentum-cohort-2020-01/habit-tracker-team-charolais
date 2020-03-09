@@ -8,17 +8,15 @@ from .forms import HabitForm, HabitRecordForm
 
 @login_required
 def habit_list(request):
-  current_user = User.objects.get(username=request.user) 
   habits = Habit.objects.all()
-  return render(request, 'habit_tracker/habit_list.html', {'habits': habits, 'current_user': current_user})
+  return render(request, 'habit_tracker/habit_list.html', {'habits': habits})
 
 
 # There might be some naming missmatch you can change what ever you need
 
 def habit_detail(request, pk):
-    current_user = User.objects.get(username=request.user) 
     habit = Habit.objects.get(pk=pk)
-    return render(request, 'habit_tracker/habit_detail.html', {"habit": habit, "pk": pk, "current_user": current_user})
+    return render(request, 'habit_tracker/habit_detail.html', {"habit": habit, "pk": pk})
 
 
 def habit_new(request):
