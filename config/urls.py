@@ -27,6 +27,7 @@ urlpatterns = [
     path('<int:pk>/delete/', views.habit_delete, name='habit_delete'),
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.default.urls')),
+    path('habit/calendar', views.calendar, name='calendar'),
 ]
 
 if settings.DEBUG:

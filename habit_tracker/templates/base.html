@@ -7,8 +7,9 @@
   {% load static %}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.11.1/tachyons.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/habit.css' %}">
-  {% block title %}
-  <title>Habits</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/calendar.css' %}">
+  <script src="{% static 'js/calendar.js' %}" defer></script>
+  {% block title %} <title>Habits</title>
   {% endblock %}
 </head>
 
@@ -25,10 +26,10 @@
         href="{% url 'habit_list' %}" title="Home">Habits</a>
       <a class="link dim dark-gray f6 f5-l dib mr3 mr4-l bg-animate hover-bg-light-blue pa3 ph4"
         href="{% url 'habit_new' %}" title="New Habit">New Habit</a>
-      <a class="link dim dark-gray f6 f5-l dib mr3 mr4-l bg-animate hover-bg-light-red pa3 ph4" href="#"
-        title="Logout">Calendar</a>
+      <a class="link dim dark-gray f6 f5-l dib mr3 mr4-l bg-animate hover-bg-light-green pa3 ph4"
+        href="{% url 'calendar' %}" title="Logout">Calendar</a>
       {% if request.user.is_authenticated %}
-      <a class="link dim dark-gray f6 f5-l dib mr3 mr4-l bg-animate hover-bg-light-red pa3 ph4"
+      <a class="link dim dark-gray f6 f5-l dib mr3 mr4-l bg-animate hover-bg-light-blue pa3 ph4"
         href="http://127.0.0.1:8000/accounts/logout/" title="Logout">Log
         Out</a>
       {% else %}

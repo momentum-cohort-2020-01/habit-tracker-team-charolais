@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
 
 {% block heading %}
-
+<h2>Habit: {{ habit.name }} </h2>
 {% endblock %}
 
 {% block content %}
 <div id="record">
   <h1>Habit Records</h1>
   <h2>Habit: {{ habit.name }} </h2>
-  <h5>Goal: {{ habit.goal }} {{habit.unit}}</h5>
+  <h4>Goal: {{ habit.goal }} {{habit.unit}}</h4>
+  <p>Created: {{ habit.created_at }}</p>
   <table>
     {% for record in habit.habit_records.all %}
-    <tr> Progress: {{ record.progress }} </tr>
+    <tr> Progress: {{ record.progress }} {{habit.unit}}</tr>
+    <p>Updated: {{ record.updated_at }}</p>
     {% empty %}
     <p>There are no records for this habit. Would you like to add one?</p>
     {% endfor %}
