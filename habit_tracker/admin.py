@@ -4,3 +4,4 @@ from .models import Habit, HabitRecord
 
 admin.site.register(Habit)
 admin.site.register(HabitRecord)
+

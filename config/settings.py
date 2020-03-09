@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'debug_toolbar',
     'habit_tracker',
+    
 ]
 
 MIDDLEWARE = [
@@ -130,6 +131,6 @@ INTERNAL_IPS = [
 ]
 
 # Registration settings
-
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_ACTIVATION_DAYS = 7

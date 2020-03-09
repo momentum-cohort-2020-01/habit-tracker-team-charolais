@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from .models import User, Habit, HabitRecord
 from .forms import HabitForm, HabitRecordForm
 
+
 @login_required
 def habit_list(request):
   current_user = User.objects.get(username=request.user) 
@@ -59,3 +60,6 @@ def habit_delete(request, pk):
     habit = get_object_or_404(Habit, pk=pk)
     habit.delete()
     return redirect('habit_list')
+
+def calendar(request):
+    return render(request, 'habit_tracker/calendar.html')
