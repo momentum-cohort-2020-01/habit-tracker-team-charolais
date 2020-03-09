@@ -5,21 +5,23 @@
 #cal-mth, #cal-yr, #cal-set {
   padding: 10px;
   font-size: 1.2em;
-  border: 0;
-  background: #ea4c4c;
+  border-radius: 10px;
+  background: darkcyan;
   color: #fff;
+  margin: auto;
 }
 
 /* [CALENDAR] */
 #calendar {
   width: 100%;
   border-collapse: collapse;
+  margin: auto;
 }
 #calendar tr.head td {
   font-weight: bold;
   text-transform: uppercase;
   color: #fff;
-  background: #f37070;
+  background: darkcyan;
   padding: 15px;
   text-align: center;
 }
@@ -85,6 +87,8 @@
 html, body, textarea, input{
   font-family: helvetica, sans-serif;
 }
-#page-body{
-  max-width: 1000px;
+#calendar-body{
+  max-width: 60%;
+  margin: auto;
+
 }
