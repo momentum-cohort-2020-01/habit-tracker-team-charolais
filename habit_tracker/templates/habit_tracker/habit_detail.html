@@ -12,6 +12,11 @@
   <p>Created: {{ habit.created_at }}</p>
   <table>
     {% for record in habit.habit_records.all %}
+    {% if record.progress >= habit.goal %}
+    <h1>You reached your goal.</h1>
+    {% else %}
+    <h1>Almost there...</h1>
+    {% endif%}
     <tr> Progress: {{ record.progress }} {{habit.unit}}</tr>
     <p>Updated: {{ record.updated_at }}</p>
     {% empty %}
